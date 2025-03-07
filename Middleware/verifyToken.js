@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken"
 
-const verifyToken  = (req, res, next) => {
+const verifyToken = (req, res, next) => {
 
     let authHeader = req.headers["authorization"];
     console.log(authHeader)
@@ -10,7 +10,7 @@ const verifyToken  = (req, res, next) => {
     jwt.verify(token, "secret", async(err, decoaded) => {
         if (err) {
             res.status(401).json({ message: "Invalid token" })
-        }else{
+        } else {
             // console.log(decoaded)
             req.user = decoaded
             next()
