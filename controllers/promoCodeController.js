@@ -39,7 +39,7 @@ exports.getAllPromoCodes = async (req, res) => {
 // @access Admin Only
 exports.getPromoCode = async (req, res) => {
     try {
-        const promoCode = await PromoCode.findById(req.params.id);
+        const promoCode = await PromoCode.find({code : req.params.code});
         if (!promoCode) {
             return res.status(404).json({ message: "Promo code not found" });
         }

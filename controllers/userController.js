@@ -27,7 +27,7 @@ exports.createUser = async (req, res) => {
 
         // const token = jwt.sign({ id: user._id, role: user.role }, "secret", { expiresIn: "1d" });
 
-        res.status(201).json({ user });
+        res.status(201).json({  message: "success" , user });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -48,7 +48,7 @@ exports.loginUser = async (req, res) => {
 
         const token = jwt.sign({ id: user._id, role: user.role }, "secret" , { expiresIn: "1d" });
 
-        res.json({ user, token });
+        res.json({ message: "success" , user, token });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
